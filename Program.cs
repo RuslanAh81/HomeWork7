@@ -41,3 +41,58 @@ void Show2dArray(double[,] array)
 double [,] myArray = CreateRandom2dArray();
 Show2dArray(myArray);
 */
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+/*
+int [,] CreateRandom2dArray()
+{ 
+      Console.WriteLine("введите количество строк m :");
+    int rows = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("введите количество столбцов n :");
+    int columns = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("введите минимальный диапозон :");
+    int minValue = Convert.ToInt32(Console.ReadLine());
+       Console.WriteLine("введите максимальный диапозон :");
+    int maxValue = Convert.ToInt32(Console.ReadLine());
+
+    int[,]array = new int [rows, columns];
+
+    for (int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j< columns; j++)
+            array[i, j] = new Random().Next(minValue, maxValue + 1);
+    }
+      return array;
+}
+
+
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j< array.GetLength(1); j++)
+            Console.Write(array[i, j ] + " ");
+
+        Console.WriteLine();   
+
+    }
+}
+
+void  FoundElement(int[,] array)
+{
+     Console.WriteLine("Введите номер строки :");
+     int m = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("Введите номер столбца :");
+     int n = Convert.ToInt32(Console.ReadLine());
+       
+    if (m < array.GetLength(0) || n < array.GetLength(1))
+       
+        Console.Write (array[m,n] );
+           
+    else
+        Console.Write("Числа с таким индексом в массиве нет");
+    
+}
+int [,] myArray = CreateRandom2dArray();
+Show2dArray(myArray);
+FoundElement(myArray);
+*/
