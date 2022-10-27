@@ -96,3 +96,63 @@ int [,] myArray = CreateRandom2dArray();
 Show2dArray(myArray);
 FoundElement(myArray);
 */
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+int [,] CreateRandom2dArray()
+{ 
+      Console.WriteLine("введите количество строк m :");
+    int rows = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("введите количество столбцов n :");
+    int columns = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("введите минимальный диапозон :");
+    int minValue = Convert.ToInt32(Console.ReadLine());
+       Console.WriteLine("введите максимальный диапозон :");
+    int maxValue = Convert.ToInt32(Console.ReadLine());
+
+    int[,]array = new int [rows, columns];
+
+    for (int i = 0; i < rows; i++)
+    {
+        for(int j = 0; j< columns; j++)
+            array[i, j] = new Random().Next(minValue, maxValue + 1);
+    }
+      return array;
+}
+
+
+void Show2dArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for(int j = 0; j< array.GetLength(1); j++)
+            Console.Write(array[i, j ] + " ");
+
+        Console.WriteLine();   
+    }
+
+
+}
+
+
+void SrednArifm(int[,] array)
+{
+    // double sredn = 0;
+    double sum = 0;
+    double[] newArray = new double[array.GetLength(1)]; 
+    for(int j = 0; j < array.GetLength(1); j++)
+    {
+        for(int i = 0; i < array.GetLength(0); i++)
+        {
+            sum += array[i,j]; 
+        }
+        newArray[j] = Math.Round(sum / array.GetLength(0), 1); 
+        sum = 0;
+        Console.Write(newArray[j] + "  ");
+    }
+        
+}
+
+int [,] myArray = CreateRandom2dArray();
+Show2dArray(myArray);
+SrednArifm(myArray);
